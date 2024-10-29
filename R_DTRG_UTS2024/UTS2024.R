@@ -93,37 +93,37 @@ p4 <- ggplot(data.frame(time, surface_motion, acceleration), aes(x = time)) +
   geom_line(aes(y = acceleration, color = "Original/Bedrock")) +
   scale_color_manual(name = "Legend", values = c("Surface" = "blue", "Original/Bedrock" = "red")) +
   theme_bw() +
-  labs(x = "Time (s)", y = "Acceleration", title = "Original vs. Surface Motion")
+  labs(x = "Time (s)", y = "Acceleration (g)", title = "Original vs. Surface Motion")
 
 # Arrange all plots with ggarrange
 ggarrange(p0, p1, p2, p3, p4, nrow = 5)
 #save plots into pdf / jpg file
-ggsave("All plot.pdf", # save in pdf format
+ggsave("All plot Combined.pdf", # save in pdf format
        plot = last_plot(),
        width = 15, 
        height = 25,
        units = "in")
-ggsave("p1.jpg", # save in pdf format
+ggsave("p1-Fourier Amplitude (Bedrock).jpg", # save in pdf format
        plot = p1,
        width = 15, 
        height = 5,
        units = "in")
-ggsave("p2.jpg", # save in pdf format
+ggsave("p2 - Transfer Function.jpg", # save in pdf format
        plot = p2,
        width = 15, 
        height = 5,
        units = "in")
-ggsave("p3.jpg", # save in pdf format
+ggsave("p3 - Fourier Amplitude (Surface).jpg", # save in pdf format
        plot = p3,
        width = 15, 
        height = 5,
        units = "in")
-ggsave("p4.jpg", # save in pdf format
+ggsave("p4 - Acceleration Time History.jpg", # save in pdf format
        plot = p4,
        width = 15, 
        height = 5,
        units = "in")
-ggsave("p0.jpg", # save in pdf format
+ggsave("p0-Ground Motion Data (Bedrock).jpg", # save in pdf format
        plot = p0,
        width = 15, 
        height = 5,
